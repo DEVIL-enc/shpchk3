@@ -202,10 +202,17 @@ async def add_site_db(user_id: int, site: str) -> bool:
 
 
 async def get_user_sites(user_id: int):
-    """𝗚𝗲𝘁 𝗮𝗹𝗹 𝘀𝗶𝘁𝗲𝘀 𝗳𝗼𝗿 𝘂𝘀𝗲𝗿"""
-    cursor = sites_col.find({"user_id": user_id})
-    docs = await cursor.to_list(length=50000)
-    return [doc["site"] for doc in docs]
+    """جلب المواقع من ملف sites.txt مباشرة في كل مرة"""
+    sites = []
+    filename = "sites.txt"
+    if os.path.exists(filename):
+        with open(filename, 'r') as f:
+            for line in f:
+                site = line.strip()
+                if site:
+                    sites.append(site)
+    return sites
+
 
 
 async def remove_site_db(user_id: int, site: str) -> bool:
