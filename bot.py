@@ -93,15 +93,15 @@ def bs(text):
 
 
 # ====================== CONFIG ======================
-API_ID = int(os.getenv("API_ID", ""))
-API_HASH = os.getenv("API_HASH", "")
-BOT_TOKEN = os.getenv("BOT_TOKEN", ")
-ADMIN_ID = json.loads(os.getenv("ADMIN_ID", "[]"))
-HIT_CHANNEL_ID = int(os.getenv("HIT_CHANNEL_ID", ""))
-JOIN_GROUP_ID = int(os.getenv("JOIN_GROUP_ID", ""))
-JOIN_CHANNEL_ID = int(os.getenv("JOIN_CHANNEL_ID", ""))
-JOIN_GROUP_LINK = os.getenv("JOIN_GROUP_LINK", "")
-JOIN_CHANNEL_LINK = os.getenv("JOIN_CHANNEL_LINK", "")
+API_ID = int(os.getenv("API_ID", "39825025"))
+API_HASH = os.getenv("API_HASH", "47170fd9a11b3f591bbc56849519f0f8")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8827673793:AAHKJphZzbQwOKBZS2pHLTDekPvYUrsJT6Y")
+ADMIN_ID = json.loads(os.getenv("ADMIN_ID", "[1707478010]"))
+HIT_CHANNEL_ID = int(os.getenv("HIT_CHANNEL_ID", "0"))
+JOIN_GROUP_ID = int(os.getenv("JOIN_GROUP_ID", "0"))
+JOIN_CHANNEL_ID = int(os.getenv("JOIN_CHANNEL_ID", "0"))
+JOIN_GROUP_LINK = os.getenv("JOIN_GROUP_LINK", "0")
+JOIN_CHANNEL_LINK = os.getenv("JOIN_CHANNEL_LINK", "0")
 FORCE_JOIN_IMAGES = [
     "",
     ""
