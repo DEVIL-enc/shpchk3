@@ -278,3 +278,44 @@ async def get_sites_per_user():
 async def get_all_sites_detail():
     cursor = sites_col.find().sort("user_id", 1)
     return await cursor.to_list(length=10000)
+
+# ============ CARDS ============
+
+async def save_card_to_db(card_data: dict):
+    """Save checked card result"""
+    await cards_col.insert_one({
+        **card_data,
+        "created_at": datetime.datetime.utcnow()
+    })
+
+async def get_total_cards_count() -> int:
+    """Get total checked cards count"""
+    return await cards_col.count_documents({})
+
+# ============ CARDS ============
+
+async def save_card_to_db(card_data: dict):
+    """Save checked card result"""
+    await cards_col.insert_one({
+        **card_data,
+        "created_at": datetime.datetime.utcnow()
+    })
+
+
+async def get_total_cards_count() -> int:
+    """Get total checked cards count"""
+    return await cards_col.count_documents({})
+
+
+async def get_charged_count() -> int:
+    """Get charged cards count"""
+    return await cards_col.count_documents({
+        "status": "CHARGED"
+    })
+
+
+async def get_approved_count() -> int:
+    """Get approved cards count"""
+    return await cards_col.count_documents({
+        "status": "APPROVED"
+    })
