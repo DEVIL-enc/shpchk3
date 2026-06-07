@@ -4,7 +4,7 @@ import datetime
 from motor.motor_asyncio import AsyncIOMotorClient
 
 # MongoDB Connection
-MONGO_URL = "mongodb+srv://aljylmhmd2_db_user:PASSWORD@chkdevip.vnvsptt.mongodb.net/?retryWrites=true&w=majority&appName=Chkdevip"
+MONGO_URL = "mongodb+srv://aljylmhmd2_db_user:Mm123_4567890@chkdevip.vnvsptt.mongodb.net/?retryWrites=true&w=majority&appName=Chkdevip"
 DB_NAME = "razor_x_bot"
 
 
